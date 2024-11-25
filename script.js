@@ -17,3 +17,10 @@ document.querySelectorAll(".gallery .image img").forEach(img => {
 closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
 });
+
+// Fecha o modal ao clicar fora da imagem
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});

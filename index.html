@@ -29,20 +29,99 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
+            cursor: pointer;
         }
         .gallery img:hover {
             transform: scale(1.05);
+        }
+        /* Estilo para o popup */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+        .modal-caption {
+            color: #fff;
+            margin-top: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            color: #fff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <h1>Minha Galeria de Imagens</h1>
+    <h1>Clique Nas Imagens</h1>
     <div class="gallery">
-        <img src="imagens/IMG-20241121-WA0004.jpg" alt="Imagem 1">
-        <img src="imagens/IMG-20241121-WA0006.jpg" alt="Imagem 2">
-        <img src="imagens/IMG-20241121-WA0007.jpg" alt="Imagem 3">
-        <img src="imagens/IMG-20241121-WA0008.jpg" alt="Imagem 4">
+        <img src="imagens/IMG-20241121-WA0006.jpg" alt="Imagem 2" data-caption="Pré Atendimento 1" onclick="openModal(this)">
+        <img src="imagens/IMG-20241121-WA0007.jpg" alt="Imagem 3" data-caption="Pré Atendimento 2" onclick="openModal(this)">
+        <img src="imagens/IMG-20241121-WA0008.jpg" alt="Imagem 4" data-caption="Pré Atendimento 3" onclick="openModal(this)">
+        <img src="imagens/IMG-20241121-WA0005.jpg" alt="Imagem 4" data-caption="Pré Atendimento 4" onclick="openModal(this)">
+        <img src="imagens/IMG-20241121-WA0009.jpg" alt="Imagem 4" data-caption="Pré Atendimento 5" onclick="openModal(this)">
         <!-- Adicione mais imagens conforme necessário -->
     </div>
+    <div class="gallery">
+        <img src="imagens/IMG-20241121-WA0010.jpg" alt="Imagem 4" data-caption="Pre Atendimento 6" onclick="openModal(this)">
+        <img src="imagens/IMG-20241121-WA0004.jpg" alt="Imagem 1" data-caption="Dashboard Geral" onclick="openModal(this)">
+        <img src="imagens/Imagem do WhatsApp de 2024-11-21 à(s) 16.22.01_b536901e.jpg" alt="" data-caption="Lembrete de Consulta" onclick="openModal(this)">
+        <img src="imagens/Imagem do WhatsApp de 2024-11-21 à(s) 16.22.31_b5df957f.jpg" alt="Imagem 4" data-caption="Mensagem de Aniversário" onclick="openModal(this)">
+        <!-- Adicione mais imagens conforme necessário -->
+    </div>
+
+    <!-- Modal para exibir a imagem em tamanho maior -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImg" src="" alt="Imagem ampliada">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal e exibir a imagem clicada
+        function openModal(element) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImg");
+            var modalCaption = document.getElementById("modalCaption");
+            modal.style.display = "block";
+            modalImg.src = element.src;
+            modalCaption.textContent = element.getAttribute("data-caption");
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
 </body>
 </html>

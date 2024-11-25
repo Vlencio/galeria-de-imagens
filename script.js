@@ -31,3 +31,14 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+let zoomLevel = 1;
+
+modalImg.addEventListener("wheel", (e) => {
+    if (e.deltaY > 0) {
+        zoomLevel = Math.max(1, zoomLevel - 0.1); // Limita o zoom para no mínimo 1x
+    } else {
+        zoomLevel = Math.min(3, zoomLevel + 0.1); // Limita o zoom para no máximo 3x
+    }
+    modalImg.style.transform = `scale(${zoomLevel})`;
+});
+

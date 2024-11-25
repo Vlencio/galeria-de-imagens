@@ -40,7 +40,7 @@ header h1 {
 
 .image img {
     max-width: 100%;
-    max-height: 200px;
+    max-height: 300px; /* aumente o valor para imagens maiores */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -71,7 +71,12 @@ header h1 {
 }
 
 .modal-content {
-    animation: zoomIn 0.7s ease-in-out;
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 90vw;
+    max-height: 90vh;
+    animation: zoomIn 0.5s;
 }
 
 @keyframes zoomIn {
@@ -84,9 +89,10 @@ header h1 {
 }
 
 .modal-content:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
+    transform: scale(1.2);
+    transition: transform 0.4s ease;
 }
+
 
 .close {
     position: absolute;

@@ -52,3 +52,9 @@ modalImg.addEventListener("wheel", (e) => {
     }
     modalImg.style.transform = `scale(${zoomLevel})`;
 });
+
+// Ajuste para garantir que as imagens sejam empilhadas
+const gallery = document.querySelector(".gallery");
+gallery.style.display = "flex";
+gallery.style.flexDirection = "column";
+gallery.style.alignItems = "center";

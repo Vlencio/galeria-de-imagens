@@ -98,8 +98,8 @@
     </div>
 
     <!-- Modal para exibir a imagem em tamanho maior -->
-    <div id="myModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
+    <div id="myModal" class="modal" onclick="closeModal(event)">
+        <span class="close" onclick="closeModal(event)">&times;</span>
         <div class="modal-content">
             <img id="modalImg" src="" alt="Imagem ampliada">
             <div id="modalCaption" class="modal-caption"></div>
@@ -118,9 +118,11 @@
         }
 
         // Função para fechar o modal
-        function closeModal() {
+        function closeModal(event) {
             var modal = document.getElementById("myModal");
-            modal.style.display = "none";
+            if (event.target === modal || event.target.className === 'close') {
+                modal.style.display = "none";
+            }
         }
     </script>
 </body>
